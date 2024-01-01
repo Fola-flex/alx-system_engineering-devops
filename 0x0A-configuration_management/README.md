@@ -1,1 +1,1 @@
-This is a directory on Configuration managemetn
+This is a directory on Configuration management
