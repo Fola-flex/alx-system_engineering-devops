@@ -1,12 +1,12 @@
-# Fix problem of high amount of requests
+# Fix problem of high amount files opened
 
-exec {'replace':
+exec {'replace-1':
   provider => shell,
-  command  => 'sudo sed -i "s/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
-  before   => Exec['restart'],
+  command  => 'sudo sed -i "s/nofile 5/nofile 50000/" /etc/security/limits.conf',
+  before   => Exec['replace-2'],
 }
 
-exec {'restart':
+exec {'replace-2':
   provider => shell,
-  command  => 'sudo service nginx restart',
+  command  => 'sudo sed -i "s/nofile 4/nofile 40000/" /etc/security/limits.conf',
 }
