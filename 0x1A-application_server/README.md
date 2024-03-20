@@ -1,0 +1,1 @@
+This was our AirBnB clone's application deployment project. For this project, Holberton School gave me web servers, and I set up Nginx on them to serve a WSGI Flask application that was using Gunicorn. I also configured an Upstart script to maintain the application's functionality during server reboots.
